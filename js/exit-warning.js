@@ -30,20 +30,21 @@ $j(document).ready(function() {
 		var isMailTo = true,
 			isTel    = true,
 			domain;
+		if (url !== null) {
+			// Check the url is linking to a mailto
+			if (url.search('mailto:') < 0) isMailTo = false;
 
-		// Check the url is linking to a mailto
-		if (url.search('mailto:') < 0) isMailTo = false;
+			// For iPad / iPhones, check Safari hasn't inserted
+			// links for telephone numbers
+			if (url.search('tel:') < 0) isTel = false;
 
-		// For iPad / iPhones, check Safari hasn't inserted
-		// links for telephone numbers
-		if (url.search('tel:') < 0) isTel = false;
-
-		if (!isMailTo &&
-			!isTel) {
-			domain = url.match(/:\/\/(.[^\/]+)/)[1];
-			return domain;
+			if (!isMailTo &&
+				!isTel) {
+				domain = url.match(/:\/\/(.[^\/]+)/)[1];
+				return domain;
+			}
+			return false;
 		}
-		return false;
 	}
 
 });
