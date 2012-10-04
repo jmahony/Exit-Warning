@@ -23,7 +23,7 @@ $j(document).ready(function() {
 	}
 	
 	function exitAlert() {
-		alert('You are now departing from the regulatory site of Opus Gold. Opus Gold is not responsible for the accuracy of the information contained within the linked site.');
+		alert('Your Message Goes Here');
 	}
 
 	function extractDomain(url) {
